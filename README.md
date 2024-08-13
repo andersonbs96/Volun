@@ -1,6 +1,6 @@
 # volun
 
-1- Requisitos Funcionais:
+# 1- Requisitos Funcionais:
 
 
 
@@ -90,7 +90,7 @@ Banco de Dados: NoSQL (Firebase, Supabase ou MongoDB).
 
 
 
-2 - Requisitos Não Funcionais
+# 2 - Requisitos Não Funcionais
 
 Desempenho:
 
@@ -170,7 +170,7 @@ Mostrar onde os eventos estão acontecendo por meio de um Mapa.
 
 
 
-3 - REGRAS DE NÉGOCIO P/ PROJETO
+# 3 - REGRAS DE NÉGOCIO P/ PROJETO
 
 
 
@@ -239,7 +239,6 @@ Os comentários em eventos só podem ser feitos por usuários inscritos no event
 Comentários abusivos ou que contenham l_inguagem ofensiva serão removidos pela moderação, e o autor pode_rá ser advertido ou banido.
 
 
-
 Busca e Filtragem de Eventos:
 
 Os resultados de busca devem priorizar eventos que estão mais próximos geograficamente do usuário.
@@ -247,7 +246,6 @@ Os resultados de busca devem priorizar eventos que estão mais próximos geograf
 Eventos que estão mais próximos da data atual devem ser priorizados na exibição dos resultados.
 
 Tags e categorias utilizadas em eventos devem ser selecionadas de uma lista predefinida para manter consistência.
-
 
 
 Conformidade Legal:
