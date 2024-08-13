@@ -1,5 +1,7 @@
 # volun
 
+Projeto feito utilizando REACT com VITE.JS
+
 # 1- Requisitos Funcionais:
 
 
