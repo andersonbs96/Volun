@@ -1,0 +1,168 @@
+@import url('./Global.css');
+
+html, body {
+    height: 100vh;
+}
+
+.cardong {
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+.cardong-left, .cardong-rigth {
+    height: 100vh;
+}
+
+.cardong-left {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f5f4ff;
+}
+
+.cardong-right {
+    background-image: url("/src/assets/images/fundobonito.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.cardong-form {
+    background-color: var(--cor-principal);
+    color: var(--fonte-cor-branco);
+    border: 1.5px solid var(--cor-secundaria);
+    border-radius: 10px;
+    width: 70%;
+}
+
+.cardong-form-logo {
+    width: 3em;
+    margin: .5em 12.5em -1em 12.5em;
+}
+
+.cardong-form > p {
+    font-family: var(--font-family);
+    font-size: 18px;
+    text-align: left;
+    padding: .5em 2em 0 3em;
+}
+
+.cardong-form > input, textarea {
+    display: block;
+    margin: auto;
+    width: 65%;
+    height: 2.5em;
+    border-radius: 15px;
+    border: none;
+    margin-top: 1em;
+    padding-left: .7em;
+    resize: none;
+}
+
+.cardong-form > textarea {
+    font-family: var(--font-family);
+    padding-top: .4em;
+    height: 5em;
+    resize: none;
+}
+
+.telefone-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch; /* Alinha os inputs verticalmente para a mesma altura */
+    width: 67%;
+    margin: auto;
+    margin-top: 1em;
+}
+
+#ddd-ong {
+    width: 3em;
+    height: 2.5em;
+    margin-right: 1em;
+}
+
+#telefone-ong {
+    flex: 1;
+    height: 2.5em;
+}
+
+.telefone-container > input {
+    border-radius: 15px;
+    border: none;
+    padding-left: .7em;
+}
+
+.cardong-form > button {
+    display: block;
+    margin: auto;
+    margin-bottom: .5em;
+    color: var(--fonte-cor-branco);
+    background-color: var(--cor-secundaria);
+    border: none;
+    border-radius: .8em;
+    cursor: pointer;
+    padding: .5em 7em .5em 7em;
+}
+
+@media screen and (max-width: 468px) {
+
+    html, body {
+        width: 100vw;
+    }
+
+    .cardong-right {
+        display: none;
+    }
+
+    .cardong-left {
+        margin: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        width: 100vw;
+    }
+ 
+    .cardong {
+        display: block;
+        width: 100vw;
+    }
+    
+    .cardong-form {
+        width: 85%;
+    }
+
+    .cardong-form-logo {
+        width: 3.5em;
+        margin: 1em 0 .1em 8.7em;
+    }
+
+    .cardong-form > p {
+        padding: 0 0 0 1.7em;
+        font-size: 1.35em;
+    }
+
+    .cardong-form > input, textarea {
+        width: 80%;
+        height: 3em;
+        font-size: 1em;
+        margin-top: 2em;
+    }
+    
+    .telefone-container {
+        margin: .8em 0 0 2em;
+        gap: .5em
+    }
+
+    .telefone-container > input {
+        font-size: 1em;
+        height: 1.7em;
+    }
+
+    .cardong-form > button {
+        margin: .7em 0 1em 2em;
+        padding: .76em 4em;
+        font-size: 1.3em;
+    }
+
+}
