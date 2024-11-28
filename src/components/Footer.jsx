@@ -1,65 +1,77 @@
 import React from "react";
-
-import Logo from "../assets/images/logo.svg";
+import Logo from "../assets/logos/logo.svg";
+import { useNavigate } from "react-router";
+import { getAuth } from "firebase/auth";
+import { app } from "../services/firebase-config";
 import { IoLogoFacebook } from "react-icons/io";
-import { FaSquareYoutube } from "react-icons/fa6";
-import { FaTwitter } from "react-icons/fa";
-import { FaPinterest } from "react-icons/fa";
-import { FaInstagram } from "react-icons/fa";
+import { FaYoutube, FaTwitter, FaPinterest, FaInstagram } from "react-icons/fa";
+import "./../css/Footer.css";
+import { Link } from "react-router-dom";
+import axios from "axios";
 
 const Footer = () => {
+  const navigate = useNavigate();
+  const auth = getAuth(app);
+
+  const handleOrgPageRedirect = async () => {
+    const user = auth.currentUser;
+    
+  
+    if (!user) {
+      // Se o usuário não estiver logado, exibe um alerta e retorna
+      alert("Você precisa estar logado para acessar esta página.");
+      return;
+    }
+  
+    try {
+      // Requisição para verificar as ONGs do usuário
+      const response = await axios.get(
+        `https://volun-api-eight.vercel.app/organizacao/criador/${user.uid}`
+      );
+  
+      if (response.data && response.data.length > 0) {
+        // Se o usuário tiver uma ou mais ONGs criadas, navega para a página /ong
+        navigate(`/ong`);
+      } else {
+        // Caso contrário, navega para a página /cardong
+        navigate("/cardong");
+      }
+    } catch (error) {
+      if (error.response && error.response.status === 404) {
+        // Tratar 404 como ausência de organizações
+        console.warn("Nenhuma organização encontrada para o usuário.");
+        navigate("/cardong");
+      } else {
+        // Outros erros
+        console.error("Erro ao verificar organizações do usuário:", error);
+        alert("Ocorreu um erro ao tentar verificar suas organizações.");
+      }
+    }
+  };
+  
   return (
-    <footer className="bg-Dark-Blue text-white flex md:flex-row flex-col  items-center justify-between px-[40px] py-[30px]">
-      <div className="flex md:gap-20 gap-4 md:flex-row flex-col">
-        <div className="flex flex-col gap-8">
-          <div className="invert">
-            <img src={Logo} alt="" />
-          </div>
-          <div className="flex gap-2 text-[22px]">
-            <div className="cursor-pointer ">
-              <IoLogoFacebook className=" text-white hover:text-Lime-Green" />
-            </div>
-            <div className="cursor-pointer ">
-              <FaSquareYoutube className="hover:text-Lime-Green" />
-            </div>
-            <div className="cursor-pointer ">
-              <FaTwitter className=" text-white hover:text-Lime-Green" />
-            </div>
-            <div className="cursor-pointer ">
-              <FaPinterest className=" text-white hover:text-Lime-Green" />
-            </div>
-            <div className="cursor-pointer ">
-              <FaInstagram className=" text-white hover:text-Lime-Green" />
-            </div>
-          </div>
+    <footer className="footer-container">
+      <div className="footer-row">
+        <div className="footer-logo">
+          <img src={Logo} alt="Logo" />
         </div>
-        <div className="flex flex-col items-center gap-4 ">
-          <a href="/" className="hover:text-Lime-Green">
-            About
-          </a>
-          <a href="/" className="hover:text-Lime-Green">
-            Contact
-          </a>
-          <a href="/" className="hover:text-Lime-Green">
-            Blog
-          </a>
+        <div className="footer-links">
+          <Link to="/">Home</Link>
+          <Link to="/eventos" id="navbar-eventos">Eventos</Link>
         </div>
-        <div className="flex flex-col items-center gap-4 ">
-          <a href="/" className="hover:text-Lime-Green">
-            Careers
-          </a>
-          <a href="/" className="hover:text-Lime-Green">
-            Support
-          </a>
-          <a href="/" className="hover:text-Lime-Green">
-            Privacy Policy
-          </a>
+        <div className="footer-links">
+        <button onClick={handleOrgPageRedirect} id="navbar-org" >Sou uma organização</button>
+        </div>
+
+        <div className="footer-social-icons">
+          <div className="footer-icons"><IoLogoFacebook /></div>
+          <div className="footer-icons"><FaInstagram /></div>
+          <div className="footer-icons"><FaTwitter /></div>
+          <div className="footer-icons"><FaPinterest /></div>
         </div>
       </div>
-      <div className="flex flex-col items-center gap-3">
-        <p className="text-Grayish-Blue text-[14px] mt-[10px]">
-          &copy; Volun. All Rights Reserved
-        </p>
+      <div className="footer-rights">
+        <p>&copy; Volun. All Rights Reserved</p>
       </div>
     </footer>
   );

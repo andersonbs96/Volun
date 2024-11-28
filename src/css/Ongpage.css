@@ -1,0 +1,297 @@
+@import url(./Global.css);
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+body {
+    background-color: #e4e3ef;
+}
+
+.blue {
+    color: #1F0171;
+    font-family: "Poppins", sans-serif;
+}
+
+.ong-content {
+    background-color: white;
+    margin: 1.3em;
+    padding-bottom: 1em;
+    border-radius: 1em;
+}
+
+.ong-profile {
+    padding: 3em 2em;
+    display: flex;
+    justify-content: space-around;
+}
+
+#ong-pfp {
+    margin: 20px;
+    width: 17.5em;
+    border-radius: 50%;
+    border: solid 4px rgb(255, 128, 0);
+}
+
+#ong-name {
+    font-size: 2.5em;
+    font-weight: 500;
+}
+
+#ong-date {
+    font-size: 1.5em;
+    font-weight: 450;
+}
+
+#gps-icon, #cate-icon, #flws-icon {
+    width: 1.2em;
+}
+
+#ong-address, #ong-genre, #ong-followers {
+    display: flex;
+    gap: .5em;
+}
+
+#ong-address-text {
+    font-size: 1.3em;
+    font-weight: 500;
+}
+
+#ong-genre-text {
+    font-size: 1.3em;
+    font-weight: 500;
+}
+
+#ong-flws-text {
+    font-size: 1.3em;
+    font-weight: 400;
+}
+
+.ong-info {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1em;
+}
+
+.ong-media {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.media-icons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1.5em;
+}
+
+/* Estilizando o botão de exclusão */
+.delete-btn {
+  background-color: red;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.delete-btn:hover {
+  background-color: darkred;
+}
+
+/* Estilizando a modal */
+.modal-delete-org {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content-org {
+  background-color: white;
+  padding: 40px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.modal-buttons-org {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.modal-delete-btn-org {
+  background-color: red;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.modal-cancel-btn-org {
+  background-color: rgb(99, 99, 99);
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.modal-delete-btn-org:hover,
+.modal-cancel-btn-org:hover {
+  opacity: 0.8;
+}
+
+
+#flw-btn {
+    background-color: #1F0171;
+    color: white;
+    padding: .5em 5.5em;
+    border-radius: 15px;
+    border: none;
+    font-family: "Poppins", sans-serif;
+    font-size: 1.3em;
+}
+
+#ong-line {
+    border: 1.3px solid #1F0171;
+    width: 90%;
+    margin: auto;
+}
+
+.about-ong {
+    background-color: white;
+    margin: 1.3em;
+    padding: 1.5em;
+    border-radius: 1em;
+}
+
+#about-title {
+    font-weight: 500;
+}
+
+#about-text {
+    font-size: 1.1em;
+    font-weight: 400;
+    text-align: justify;
+}
+
+.ong-events {
+    background-color: white;
+    margin: 1.3em;
+    padding: 1.5em;
+    border-radius: 1em;
+}
+
+.ong-events-title {
+    font-weight: 600;
+}
+
+.ong-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 colunas iguais */
+    gap: 20px; /* Espaçamento entre os cards */
+    justify-items: center; /* Alinha os cards ao centro */
+  }
+
+.no-events {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    text-align: center;
+    font-size: 16px;
+    color: #555;
+    padding-bottom: 120px;
+    padding-top: 120px;
+  }
+  
+  
+  @media (max-width: 1024px) {
+    .ong-cards {
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Ajusta para 2 ou 1 colunas em telas menores */
+      gap: 15px; /* Reduz o espaçamento em telas pequenas */
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .ong-cards {
+      grid-template-columns: 1fr; /* Apenas uma coluna em telas muito pequenas */
+    }
+  }
+  
+  .org-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f5f5f5;
+    border: 1px solid #ddd;
+    padding: 10px 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+  }
+  
+  .org-nav-btn {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s ease;
+    margin-right: 10px;
+    font-size: 14px;
+    font-weight: 500;
+  }
+  
+  .org-nav-btn.active {
+    background-color: #007bff;
+    color: white;
+    border-color: #007bff;
+  }
+  
+  .org-nav-btn:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .org-nav-action {
+    display: flex;
+    align-items: center;
+  }
+  
+  .org-nav-add-btn {
+    background-color: #ff9800;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s ease;
+  }
+  
+  .org-nav-add-btn:hover {
+    background-color: #e68900;
+    transform: scale(1.05);
+  }
+  
+  .ong-media a {
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+    color: #007bff;
+    transition: 0.3s ease;
+  }
+  
+  .ong-media a:hover {
+    text-decoration: underline;
+    color: #0056b3;
+  }
+  
